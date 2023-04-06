@@ -63,9 +63,9 @@ struct AnswerProgressBar: View {
     var barLength : CGFloat = 0
     func getBarColor(index: Int) -> Color {
         if(answerCorrectly[index] == Optional(true)){
-            return Color("americanGreen")
+            return Color("celestialBlue")
         } else if(answerCorrectly[index] == Optional(false)){
-            return Color("fireOpal")
+            return Color("celestialBlue")
         } else {
             return Color("water")
         }
@@ -75,7 +75,7 @@ struct AnswerProgressBar: View {
         self.answerCorrectly = answerCorrectly
         self.questionCount = questionCount
         
-        self.barLength  = screenWidth/CGFloat(questionCount)
+        self.barLength  = screenWidth/CGFloat(questionCount) - 4
     }
     var body: some View{
         HStack(spacing: 0){
@@ -83,7 +83,7 @@ struct AnswerProgressBar: View {
                 Rectangle()
                     .foregroundColor(getBarColor(index: i))
                     .frame(width: barLength, height: 8)
-                    .padding(0)
+                    .padding(.horizontal,2)
                 //                    var _ = print(i, " : ", getBarColor(index: i))
                 
             }
