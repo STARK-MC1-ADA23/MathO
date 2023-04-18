@@ -22,17 +22,14 @@
 		2BE4F6C429D3F41D00D83CDF /* MathOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6C329D3F41D00D83CDF /* MathOUITests.swift */; };
 		2BE4F6C629D3F41D00D83CDF /* MathOUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6C529D3F41D00D83CDF /* MathOUITestsLaunchTests.swift */; };
 		2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */; };
-		A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F6E7E29DBDC7300260680 /* TutorialView.swift */; };
-		CB7EE06E29DD0608009D2880 /* MathPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06D29DD0608009D2880 /* MathPattern.swift */; };
-		CB7EE07029DD0F74009D2880 /* PatternModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06F29DD0F74009D2880 /* PatternModel.swift */; };
-		CB95073A29DD2144003065B0 /* MathSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95073929DD2144003065B0 /* MathSolution.swift */; };
-		CBA6422229E5027E006006AA /* PatternViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA6422129E5027E006006AA /* PatternViewModel.swift */; };
-		CBF7975429E6724B00E362A1 /* TabularRegressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7975329E6724B00E362A1 /* TabularRegressor.swift */; };
 		458F10D429DE63C100B5B510 /* TutorialFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F10D329DE63C100B5B510 /* TutorialFinishView.swift */; };
 		742B1BB329DBEF340049E8EE /* SolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742B1BB229DBEF340049E8EE /* SolutionView.swift */; };
 		742B1BB529DD0F370049E8EE /* ExplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742B1BB429DD0F370049E8EE /* ExplainView.swift */; };
 		74846C0C29DDD1FD00530195 /* WrapUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74846C0B29DDD1FD00530195 /* WrapUpView.swift */; };
+		A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F6E7E29DBDC7300260680 /* TutorialView.swift */; };
+		CB7EE06E29DD0608009D2880 /* MathPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06D29DD0608009D2880 /* MathPattern.swift */; };
 		CB7EE07029DD0F74009D2880 /* MathCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06F29DD0F74009D2880 /* MathCache.swift */; };
+		CB95073A29DD2144003065B0 /* MathSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95073929DD2144003065B0 /* MathSolution.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,14 +69,6 @@
 		2BE4F6C329D3F41D00D83CDF /* MathOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOUITests.swift; sourceTree = "<group>"; };
 		2BE4F6C529D3F41D00D83CDF /* MathOUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
-		A66F6E7E29DBDC7300260680 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
-		CB7EE06D29DD0608009D2880 /* MathPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathPattern.swift; sourceTree = "<group>"; };
-		CB7EE06F29DD0F74009D2880 /* PatternModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternModel.swift; sourceTree = "<group>"; };
-		CB81671A29E64F8200034E56 /* CreateML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CreateML.framework; path = System/Library/Frameworks/CreateML.framework; sourceTree = SDKROOT; };
-		CB81671C29E6505B00034E56 /* CreateML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CreateML.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CreateML.framework; sourceTree = DEVELOPER_DIR; };
-		CB95073929DD2144003065B0 /* MathSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathSolution.swift; sourceTree = "<group>"; };
-		CBA6422129E5027E006006AA /* PatternViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternViewModel.swift; sourceTree = "<group>"; };
-		CBF7975329E6724B00E362A1 /* TabularRegressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabularRegressor.swift; sourceTree = "<group>"; };
 		458F10D329DE63C100B5B510 /* TutorialFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFinishView.swift; sourceTree = "<group>"; };
 		742B1BB229DBEF340049E8EE /* SolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionView.swift; sourceTree = "<group>"; };
 		742B1BB429DD0F370049E8EE /* ExplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainView.swift; sourceTree = "<group>"; };
@@ -101,7 +90,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBF7974929E65C5D00E362A1 /* Frameworks */ = {
+		2BE4F6BC29D3F41D00D83CDF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -118,7 +107,6 @@
 				2BE4F6B829D3F41D00D83CDF /* MathOTests */,
 				2BE4F6C229D3F41D00D83CDF /* MathOUITests */,
 				2BE4F6A629D3F41C00D83CDF /* Products */,
-				CB81671929E64F8200034E56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				2B74AA3929D5854900CEE024 /* Info.plist */,
-				CBA6422329E502AC006006AA /* Math */,
 				2BE4F6A829D3F41C00D83CDF /* MathOApp.swift */,
 				2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */,
 				2B8BD96429D8792F00AEA9E2 /* SumQuestionPage.swift */,
@@ -145,6 +132,10 @@
 				2B9999B429D4060C00B62347 /* OnboardingView.swift */,
 				2B74AA3329D569BC00CEE024 /* QuestionPage.swift */,
 				2BB406A829D696EB00B78AB8 /* TestView.swift */,
+				2B74AA3529D5711800CEE024 /* Math.swift */,
+				CB95073929DD2144003065B0 /* MathSolution.swift */,
+				CB7EE06D29DD0608009D2880 /* MathPattern.swift */,
+				CB7EE06F29DD0F74009D2880 /* MathCache.swift */,
 				2B8BEC1E29D55081003722E8 /* HomeView.swift */,
 				742B1BB229DBEF340049E8EE /* SolutionView.swift */,
 				742B1BB429DD0F370049E8EE /* ExplainView.swift */,
@@ -180,28 +171,6 @@
 				2BE4F6C529D3F41D00D83CDF /* MathOUITestsLaunchTests.swift */,
 			);
 			path = MathOUITests;
-			sourceTree = "<group>";
-		};
-		CB81671929E64F8200034E56 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CB81671C29E6505B00034E56 /* CreateML.framework */,
-				CB81671A29E64F8200034E56 /* CreateML.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CBA6422329E502AC006006AA /* Math */ = {
-			isa = PBXGroup;
-			children = (
-				2B74AA3529D5711800CEE024 /* Math.swift */,
-				CBA6422129E5027E006006AA /* PatternViewModel.swift */,
-				CBF7975329E6724B00E362A1 /* TabularRegressor.swift */,
-				CB95073929DD2144003065B0 /* MathSolution.swift */,
-				CB7EE06D29DD0608009D2880 /* MathPattern.swift */,
-				CB7EE06F29DD0F74009D2880 /* PatternModel.swift */,
-			);
-			path = Math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,7 +216,7 @@
 			buildConfigurationList = 2BE4F6CF29D3F41D00D83CDF /* Build configuration list for PBXNativeTarget "MathOUITests" */;
 			buildPhases = (
 				2BE4F6BB29D3F41D00D83CDF /* Sources */,
-				CBF7974929E65C5D00E362A1 /* Frameworks */,
+				2BE4F6BC29D3F41D00D83CDF /* Frameworks */,
 				2BE4F6BD29D3F41D00D83CDF /* Resources */,
 			);
 			buildRules = (
@@ -340,16 +309,14 @@
 				2B8BD96529D8792F00AEA9E2 /* SumQuestionPage.swift in Sources */,
 				CB95073A29DD2144003065B0 /* MathSolution.swift in Sources */,
 				2BE4F6A929D3F41C00D83CDF /* MathOApp.swift in Sources */,
-				CB7EE07029DD0F74009D2880 /* PatternModel.swift in Sources */,
+				CB7EE07029DD0F74009D2880 /* MathCache.swift in Sources */,
 				CB7EE06E29DD0608009D2880 /* MathPattern.swift in Sources */,
 				2B9999B329D404E500B62347 /* OnboardingStep.swift in Sources */,
-				CBF7975429E6724B00E362A1 /* TabularRegressor.swift in Sources */,
 				2B8BEC1F29D55081003722E8 /* HomeView.swift in Sources */,
 				742B1BB329DBEF340049E8EE /* SolutionView.swift in Sources */,
 				2B9999B529D4060C00B62347 /* OnboardingView.swift in Sources */,
 				A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */,
 				2BB406A929D696EB00B78AB8 /* TestView.swift in Sources */,
-				CBA6422229E5027E006006AA /* PatternViewModel.swift in Sources */,
 				74846C0C29DDD1FD00530195 /* WrapUpView.swift in Sources */,
 				2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */,
 				2B74AA3629D5711800CEE024 /* Math.swift in Sources */,
@@ -520,16 +487,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = NO;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zyi.MathO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Vincent-Gunawan.MathO";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -554,10 +519,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = NO;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,7 +544,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5G78Q4RCCL;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vincent-Gunawan.MathOTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -601,7 +564,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5G78Q4RCCL;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vincent-Gunawan.MathOTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -620,7 +583,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5G78Q4RCCL;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vincent-Gunawan.MathOUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -639,7 +601,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5G78Q4RCCL;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vincent-Gunawan.MathOUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

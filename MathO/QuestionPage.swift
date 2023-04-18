@@ -6,19 +6,16 @@
 //
 
 import SwiftUI
-import Foundation
 
 struct AnswerButton: View {
     let generatedNumber: Int
     @Binding var isCircle: [Bool]
     @Binding var isSelected: [Bool]
-    var pattern: String = ""
     let index: Int
     let correctAnswer: Int
     @Binding var answerCorrectly: [Bool?]
     let currentPageIndex: Int
     
-    @ObservedObject var patternViewModel = PatternViewModel()
     var body: some View {
         Button {
             withAnimation {
@@ -26,17 +23,11 @@ struct AnswerButton: View {
                     isCircle[index].toggle()
                     isSelected[index].toggle()
                     if(currentPageIndex != -1){
-                        if pattern != ""{
-                            patternViewModel.addPattern(PatternAnswerModel(pattern: pattern, value: 1.0))
-                        }
                         answerCorrectly[currentPageIndex] = true
                     }
                 } else {
                     isSelected[index].toggle()
                     if(currentPageIndex != -1){
-                        if pattern != ""{
-                            patternViewModel.addPattern(PatternAnswerModel(pattern: pattern, value: -1.0))
-                        }
                         answerCorrectly[currentPageIndex] = false
                     }
                 }
@@ -101,7 +92,7 @@ struct AnswerProgressBar: View {
 }
 
 struct QuestionPage: View {
-    @State var question: [Math]
+    @State var question: [Math] = [Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math()]
     @State public var currentPageIndex: Int = 0
     @State public var isCircle: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
     @State public var isSelected: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
@@ -127,10 +118,8 @@ struct QuestionPage: View {
     
     
     var body: some View {
-        
         VStack{
-            AnswerProgressBar(answerCorrectly: answerCorrectly, questionCount: question.count
-            )
+            AnswerProgressBar(answerCorrectly: answerCorrectly, questionCount: question.count)
             VStack {
                 Text(question[currentPageIndex].stringQuestion)
                     .padding(.horizontal, 24)
@@ -187,7 +176,6 @@ struct QuestionPage: View {
                 Text("Finish")
             }
             
-            
         })
             .disabled(isSelected[currentPageIndex].allSatisfy({ $0 == false}))
         )
@@ -200,7 +188,6 @@ struct QuestionPage: View {
                 .navigationBarHidden(true)
         }
     }
-    
 }
 
 struct QuestionPage_Previews: PreviewProvider {

@@ -7,20 +7,30 @@
 
 import Foundation
 
+let MathPattern: [String] = ["-,+,*",
+                             "+,/,-",
+                             "-,*,/",
+                             "+,-,/",
+                             "-,+,*",
+                             "+,+,/",
+                             "+,-,*",
+                             "*,-,+",
+                             "/,*,-",
+                             "*,+,/",]
+
 struct Math{
     
-    let selectedPattern: [String]
+    let selectedPattern = ["+",":","-","x"]
     let randomQuestion: (number: [Int], parenthesis: [Int]?)
     var stringQuestion: String
     let correctAnswer: Int
     let answerOption: (answerOptions: [Int], rightAnswerIndex: Int?)
     let solution: [MathSolution]
     
-    init(selectedPattern: [String] = ["*","-","+","/"]) {
-        self.selectedPattern = selectedPattern
-        self.randomQuestion = Math.GenerateQuestion(opsArr: selectedPattern, isParenthesis: arc4random_uniform(2) == 0 ? false : true)
+    init() {
+        self.randomQuestion = Math.GenerateQuestion(opsArr: selectedPattern, isParenthesis: true)
         self.stringQuestion = Math.ShowSolvingStep(numArr: randomQuestion.number, opsArr: selectedPattern, opsIndex: -1, parenthesis: randomQuestion.parenthesis)[0]
-        let result = Math.CalculateMixedOperation(numArrPar: randomQuestion.number, opsArrPar: selectedPattern, parenthesis: randomQuestion.parenthesis)
+        var result = Math.CalculateMixedOperation(numArrPar: randomQuestion.number, opsArrPar: selectedPattern, parenthesis: randomQuestion.parenthesis)
         self.correctAnswer = result.correctAnswer
         self.solution = result.solution
         self.answerOption = Math.GenerateAnswerOptions(numArr: randomQuestion.number, opsArr: selectedPattern, rightAnswer: self.correctAnswer)
@@ -66,7 +76,7 @@ struct Math{
         }
         
         for ops in opsArr {
-            if !isParenthesis && ops == ":" && index != 0 && opsArr[index-1] == "x" {
+            if ops == ":" && opsArr[index-1] == "x" && !isParenthesis{
                 numArr[index] = Int.random(in: rangeAddSub)
                 var operandDivision = 10
                 while operandDivision > 1 {
@@ -287,7 +297,7 @@ struct Math{
             }
             Operation += " "
             if let parenthesis = parenthesis {
-                if  closeParenthesis && (parenthesis[pIndex]) == index - 1 {
+                if  (parenthesis[pIndex]) == index - 1 {
                     Operation += ") "
                     closeParenthesis = false
                 }
