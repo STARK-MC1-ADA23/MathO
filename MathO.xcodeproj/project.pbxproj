@@ -72,11 +72,7 @@
 		458F10D329DE63C100B5B510 /* TutorialFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFinishView.swift; sourceTree = "<group>"; };
 		742B1BB229DBEF340049E8EE /* SolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionView.swift; sourceTree = "<group>"; };
 		742B1BB429DD0F370049E8EE /* ExplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainView.swift; sourceTree = "<group>"; };
-		74846C0B29DDD1FD00530195 /* WrapUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapUpView.swift; sourceTree = "<group>"; };
-		A66F6E7E29DBDC7300260680 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
-		CB7EE06D29DD0608009D2880 /* MathPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathPattern.swift; sourceTree = "<group>"; };
-		CB7EE06F29DD0F74009D2880 /* MathCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCache.swift; sourceTree = "<group>"; };
-		CB95073929DD2144003065B0 /* MathSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathSolution.swift; sourceTree = "<group>"; };
+		74846C0B29DDD1FD00530195 /* WrapUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapUpView.swift; sourceTree = "<group>"; };		
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

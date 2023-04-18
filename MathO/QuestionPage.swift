@@ -19,7 +19,7 @@ struct AnswerButton: View {
     var body: some View {
         Button {
             withAnimation {
-                if correctAnswer == index {
+                if correctAnswer == generatedNumber {
                     isCircle[index].toggle()
                     isSelected[index].toggle()
                     if(currentPageIndex != -1){
@@ -98,65 +98,68 @@ struct QuestionPage: View {
     @State public var isSelected: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
     @State var showSummaryView: Bool = false
     @State var answerCorrectly: [Bool?] = Array(repeating: nil, count: 12)
-    @State private var isNeedHelp: Bool = false
+    @State var test = ""
+    var selectedPatterns: [String] = []
+    
+    
+    init() {
+        self.selectedPatterns = MathPattern().GeneratePatternByML()
+        var tempQuestion: [Math] = []
+        
+        for pattern in selectedPatterns {
+            let test = Math(selectedPattern: pattern.components(separatedBy: ","))
+            
+            tempQuestion.append(test)
+        }
+        self.question = tempQuestion
+    }
     
     // for progress bar
     
     
     var body: some View {
         VStack{
-            AnswerProgressBar(answerCorrectly: answerCorrectly, questionCount: question.count
-            )
-            NavigationView {
-                VStack {
-                    Text(question[currentPageIndex].stringQuestion)
-                        .padding(.horizontal, 24)
-                        .font(.system(size: 500))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.01)
-                        .bold()
-                        .frame(maxWidth: .infinity, maxHeight: 240)
-                        .background(Color("celestialBlue"))
-                        .cornerRadius(24)
-                        .padding([.top, .leading, .trailing], 24)
-                        .foregroundColor(Color.white)
-                    
-                    VStack(spacing: 16) {
-                        HStack(spacing: 16) {
-                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[0], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 0, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
-                            
-                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[1], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 1, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
-                        }
-                        .padding(.horizontal, 32)
+            AnswerProgressBar(answerCorrectly: answerCorrectly, questionCount: question.count)
+            VStack {
+                Text(question[currentPageIndex].stringQuestion)
+                    .padding(.horizontal, 24)
+                    .font(.system(size: 500))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.01)
+                    .bold()
+                    .frame(maxWidth: .infinity, maxHeight: 240)
+                    .background(Color("celestialBlue"))
+                    .cornerRadius(24)
+                    .padding([.top, .leading, .trailing], 24)
+                    .foregroundColor(Color.white)
+                
+                VStack(spacing: 16) {
+                    HStack(spacing: 16) {
+                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[0], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 0, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                         
-                        HStack(spacing: 16) {
-                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[2], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 2, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
-                            
-                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[3], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 3, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
-                        }
-                        .padding(.horizontal, 32)
+                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[1], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 1, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                     }
-                    .padding(.top, 32)
+                    .padding(.horizontal, 32)
                     
-                    Button {
-                        isNeedHelp.toggle()
-                    } label: {
-                        Text("Bantuan")
+                    HStack(spacing: 16) {
+                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[2], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 2, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
+                        
+                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[3], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 3, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                     }
-                    
-                    NavigationLink(destination: SolutionView(question: question[currentPageIndex]), isActive: $isNeedHelp) {
-                        EmptyView()
-                    }
-
-                    Spacer()
-                    
-                    Image("book-illustration")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal, 42)
-                        .offset(y: 35)
+                    .padding(.horizontal, 32)
                 }
+                .padding(.top, 32)
+                Spacer()
+                
+                Image("book-illustration")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 42)
+                    .offset(y: 35)
+                    .onAppear{
+                        
+                    }
             }
         }
         .navigationBarTitle("Mari Berhitung 🤓")
