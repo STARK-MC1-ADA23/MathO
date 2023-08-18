@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WrapUpView: View {
+    @Binding var isFinished: Bool
     var question: Math
     func getOperatorPronounce(operation: String) -> String {
         let ops = operation.components(separatedBy: " ")[1]
@@ -123,6 +124,19 @@ struct WrapUpView: View {
                         .foregroundColor(Color("celestialBlue"))
                 )
                 .padding([.leading, .bottom, .trailing], 12)
+                
+                Button{
+                    
+                        isFinished = true
+                } label: {
+                    Text("Sudah Paham")
+                        .padding(.vertical, 20)
+                        .padding(.horizontal, 36)
+                        .background(Color("americanGreen"))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                
                 
                 Spacer()
                     

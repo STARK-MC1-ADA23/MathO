@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2BE4F6A429D3F41C00D83CDF"
-               BuildableName = "MathO.app"
-               BlueprintName = "MathO"
-               ReferencedContainer = "container:MathO.xcodeproj">
+               BuildableName = "MixMath.app"
+               BlueprintName = "MixMath"
+               ReferencedContainer = "container:MixMath.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2BE4F6B429D3F41D00D83CDF"
-               BuildableName = "MathOTests.xctest"
-               BlueprintName = "MathOTests"
-               ReferencedContainer = "container:MathO.xcodeproj">
+               BuildableName = "MixMathTests.xctest"
+               BlueprintName = "MixMathTests"
+               ReferencedContainer = "container:MixMath.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,9 +45,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2BE4F6BE29D3F41D00D83CDF"
-               BuildableName = "MathOUITests.xctest"
-               BlueprintName = "MathOUITests"
-               ReferencedContainer = "container:MathO.xcodeproj">
+               BuildableName = "MixMathUITests.xctest"
+               BlueprintName = "MixMathUITests"
+               ReferencedContainer = "container:MixMath.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,9 +67,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2BE4F6A429D3F41C00D83CDF"
-            BuildableName = "MathO.app"
-            BlueprintName = "MathO"
-            ReferencedContainer = "container:MathO.xcodeproj">
+            BuildableName = "MixMath.app"
+            BlueprintName = "MixMath"
+            ReferencedContainer = "container:MixMath.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2BE4F6A429D3F41C00D83CDF"
-            BuildableName = "MathO.app"
-            BlueprintName = "MathO"
-            ReferencedContainer = "container:MathO.xcodeproj">
+            BuildableName = "MixMath.app"
+            BlueprintName = "MixMath"
+            ReferencedContainer = "container:MixMath.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

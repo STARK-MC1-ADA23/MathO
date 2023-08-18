@@ -7,96 +7,76 @@
 
 import SwiftUI
 
-struct SegitigaAjaibView: View {
-    var body: some View {
-        VStack {
-            Text("Segitiga Ajaib")
-                .font(.system(size: 18, design: .rounded))
-                .bold()
-            Image("segitiga-ajaib-diff")
-                .resizable()
-                .frame(width: 228, height: 228)
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
-                .font(.system(size: 14, design: .rounded))
-        }
-        .padding(40)
-        .frame(maxWidth: .infinity)
-        .background(
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(Color("celestialBlue"))
-        )
-        .padding(.horizontal, 32)
-    }
-}
 
-struct ExplainView: View {
-    @State var currentStep = 0
-    
-    let steps = ["Step 1", "Step 2", "Step 3", "Step 4"]
-    
-    let ll: CGFloat
-    
-    init() {
-        self.ll = CGFloat(50 + (5-steps.count) * 30)
-    }
-    
-    var body: some View {
-        
-        ZStack {
-            
-            Spacer()
-            
-            VStack {
-                
-                Text("1 + 6 x 3 - 1")
-                    .font(.system(size: 32, design: .rounded))
-                    .bold()
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 335, height: 84)
-                            .foregroundColor(Color.white)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, lineWidth: 3)
-                            )
-                    )
-                    .padding(24)
-                
-                CustomIndicator(numberOfStep: steps.count, lengthLine: CGFloat(ll), currentStep: $currentStep)
-                    .padding(24)
-                
-                
-                VStack {
-                    Text("Kamu perlu menjawab pertanyaan ini")
-                        .font(.system(size: 18, design: .rounded))
-                        .bold()
-                    Text("6 x 3")
-                        .font(.system(size: 48, design: .rounded))
-                        .bold()
-                        .padding(.top, 1)
-                }
-                .padding(.horizontal, 80)
-                .padding(.vertical, 24)
-                .frame(maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color("celestialBlue"))
-                )
-                .padding([.leading, .bottom, .trailing], 24)
-                
-                SegitigaAjaibView()
-                
-                
-            }
-        }
-    }
-}
-
-struct ExplainView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExplainView()
-    }
-}
+//
+//struct ExplainView: View {
+//    @State var currentStep = 0
+//    
+//    let steps = ["Step 1", "Step 2", "Step 3", "Step 4"]
+//    
+//    let ll: CGFloat
+//    
+//    init() {
+//        self.ll = CGFloat(50 + (5-steps.count) * 30)
+//    }
+//    
+//    var body: some View {
+//        
+//        ZStack {
+//            
+//            Spacer()
+//            
+//            VStack {
+//                
+//                Text("1 + 6 x 3 - 1")
+//                    .font(.system(size: 32, design: .rounded))
+//                    .bold()
+//                    .background(
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .frame(width: 335, height: 84)
+//                            .foregroundColor(Color.white)
+//                            .overlay(
+//                                    RoundedRectangle(cornerRadius: 10)
+//                                        .stroke(Color.black, lineWidth: 3)
+//                            )
+//                    )
+//                    .padding(24)
+//                
+//                CustomIndicator(numberOfStep: steps.count, lengthLine: CGFloat(ll), currentStep: $currentStep)
+//                    .padding(24)
+//                
+//                
+//                VStack {
+//                    Text("Kamu perlu menjawab pertanyaan ini")
+//                        .font(.system(size: 18, design: .rounded))
+//                        .bold()
+//                    Text("6 x 3")
+//                        .font(.system(size: 48, design: .rounded))
+//                        .bold()
+//                        .padding(.top, 1)
+//                }
+//                .padding(.horizontal, 80)
+//                .padding(.vertical, 24)
+//                .frame(maxWidth: .infinity)
+//                .background(
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .foregroundColor(Color("celestialBlue"))
+//                )
+//                .padding([.leading, .bottom, .trailing], 24)
+//                
+//                SegitigaAjaibView()
+//                
+//                
+//            }
+//        }
+//    }
+//}
+//
+//struct ExplainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ExplainView()
+//    }
+//}
 
 struct CustomIndicator1: View {
     let numberOfStep: Int
