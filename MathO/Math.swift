@@ -4,25 +4,36 @@
 //
 //  Created by Vincent Gunawan on 30/03/23.
 //
- import Foundation
 
- struct Math{
+import Foundation
 
-     let selectedPattern: [String]
-     let randomQuestion: (number: [Int], parenthesis: [Int]?)
-     var stringQuestion: String
-     let correctAnswer: Int
-     let answerOption: (answerOptions: [Int], rightAnswerIndex: Int?)
-     let solution: [MathSolution]
+let MathPattern: [String] = ["-,+,*",
+                             "+,/,-",
+                             "-,*,/",
+                             "+,-,/",
+                             "-,+,*",
+                             "+,+,/",
+                             "+,-,*",
+                             "*,-,+",
+                             "/,*,-",
+                             "*,+,/",]
 
-     init(selectedPattern: [String] = ["*","-","+","/"]) {
-         self.selectedPattern = selectedPattern
-         self.randomQuestion = Math.GenerateQuestion(opsArr: selectedPattern, isParenthesis: arc4random_uniform(2) == 0 ? false : true)
-         self.stringQuestion = Math.ShowSolvingStep(numArr: randomQuestion.number, opsArr: selectedPattern, opsIndex: -1, parenthesis: randomQuestion.parenthesis)[0]
-         let result = Math.CalculateMixedOperation(numArrPar: randomQuestion.number, opsArrPar: selectedPattern, parenthesis: randomQuestion.parenthesis)
-         self.correctAnswer = result.correctAnswer
-         self.solution = result.solution
-         self.answerOption = Math.GenerateAnswerOptions(numArr: randomQuestion.number, opsArr: selectedPattern, rightAnswer: self.correctAnswer)
+struct Math{
+    
+    let selectedPattern = ["+",":","-","x"]
+    let randomQuestion: (number: [Int], parenthesis: [Int]?)
+    var stringQuestion: String
+    let correctAnswer: Int
+    let answerOption: (answerOptions: [Int], rightAnswerIndex: Int?)
+    let solution: [MathSolution]
+    
+    init() {
+        self.randomQuestion = Math.GenerateQuestion(opsArr: selectedPattern, isParenthesis: true)
+        self.stringQuestion = Math.ShowSolvingStep(numArr: randomQuestion.number, opsArr: selectedPattern, opsIndex: -1, parenthesis: randomQuestion.parenthesis)[0]
+        var result = Math.CalculateMixedOperation(numArrPar: randomQuestion.number, opsArrPar: selectedPattern, parenthesis: randomQuestion.parenthesis)
+        self.correctAnswer = result.correctAnswer
+        self.solution = result.solution
+        self.answerOption = Math.GenerateAnswerOptions(numArr: randomQuestion.number, opsArr: selectedPattern, rightAnswer: self.correctAnswer)
     }
         
     static func GenerateQuestion(opsArr: [String], isParenthesis: Bool = false) -> (number: [Int], parenthesis: [Int]?) {
@@ -36,8 +47,8 @@
         
         if isParenthesis {
             while(true){
-                var parenthesisWrap = Int.random(in: 1..<3)
-                var parenthesisOps = Int.random(in: 0..<3-parenthesisWrap)
+                var parenthesisWrap = Int.random(in: 1..<opsArr.count)
+                var parenthesisOps = Int.random(in: 0..<opsArr.count-parenthesisWrap)
                 while (parenthesisWrap > 0) {
                     parenthesis.append(parenthesisOps)
                     parenthesisOps+=1
@@ -62,13 +73,13 @@
                 index+=1
             }
             return (numArr, parenthesis)
-         }
-
-         for ops in opsArr {
-             if !isParenthesis && ops == ":" && index != 0 && opsArr[index-1] == "x" {
-                 numArr[index] = Int.random(in: rangeAddSub)
-                 var operandDivision = 10
-                 while operandDivision > 1 {
+        }
+        
+        for ops in opsArr {
+            if ops == ":" && opsArr[index-1] == "x" && !isParenthesis{
+                numArr[index] = Int.random(in: rangeAddSub)
+                var operandDivision = 10
+                while operandDivision > 1 {
                     if numArr[index] * numArr[index-1] % operandDivision == 0 && operandDivision != numArr[index] && operandDivision != numArr[index-1]{
                         tempDivisionOperand = operandDivision
                         break
@@ -210,6 +221,7 @@
             }
         }
     }
+
     static func CalculateOperationMulDiv(_ numArr: inout [Int],_ opsArr: inout [String],_ ops: String,_ index: Int)  -> (show: String, result: Int) {
         let tempN1 = numArr.remove(at: index)
         let tempN2 = numArr.remove(at: index)
@@ -232,7 +244,7 @@
         default: return (operation, result)
         }
     }
-    
+
     static func CalculateOperationAddSub(_ numArr: inout [Int],_ opsArr: inout [String],_ ops: String,_ index: Int) -> (show: String, result: Int) {
         let tempN1 = numArr.remove(at: index)
         let tempN2 = numArr.remove(at: index)
@@ -255,7 +267,7 @@
         default: return (operation, result)
         }
     }
-    
+
     static func ShowSolvingStep(numArr: [Int], opsArr: [String], opsIndex: Int, parenthesis: [Int]? = nil) -> [String] {
         var Operation = ""
         var index = 0
@@ -282,13 +294,13 @@
                 splitOperation.append(Operation)
                 Operation = ""
                 highlightOperation = false
-             }
-             Operation += " "
-             if let parenthesis = parenthesis {
-                 if  closeParenthesis && (parenthesis[pIndex]) == index - 1 {
-                     Operation += ") "
-                     closeParenthesis = false
-                 }
+            }
+            Operation += " "
+            if let parenthesis = parenthesis {
+                if  (parenthesis[pIndex]) == index - 1 {
+                    Operation += ") "
+                    closeParenthesis = false
+                }
             }
             if opsArr.count > index {
                 Operation += opsArr[index] + " "
@@ -301,6 +313,7 @@
         splitOperation.append(Operation)
         return splitOperation
     }
+
     static func CalculateMixedOperation(numArrPar: [Int], opsArrPar: [String], parenthesis: [Int]? = nil) -> (correctAnswer: Int, solution: [MathSolution]) {
         var numArr = numArrPar
         var opsArr = opsArrPar
@@ -317,7 +330,7 @@
                     RemoveParenthesisElement(&parenthesis, index)
                     operation = CalculateOperationMulDiv(&numArr, &opsArr, ops, index)
                     randomAnswer = GenerateAnswerOptions(rightAnswer: operation.result)
-                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!, isParenthesis: true))
+                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!))
                     continue
                 }
                 index+=1
@@ -331,7 +344,7 @@
                     RemoveParenthesisElement(&parenthesis, index)
                     operation = CalculateOperationAddSub(&numArr, &opsArr, ops, index)
                     randomAnswer = GenerateAnswerOptions(rightAnswer: operation.result)
-                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!, isParenthesis: true))
+                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!))
                     continue
                 }
                 index+=1
@@ -366,4 +379,5 @@
         
         return (numArr[0], mathSolutionSteps)
     }
+
 }

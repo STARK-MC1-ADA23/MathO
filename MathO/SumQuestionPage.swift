@@ -16,8 +16,7 @@ struct SumQuestionPage: View {
     
     var body: some View {
         VStack {
-//            var _ = print(question[0].)
-            
+            var _ = print(question)
             Text(question[currentPageIndex].stringQuestion)
                 .padding(.horizontal, 24)
                 .font(.system(size: 500))
