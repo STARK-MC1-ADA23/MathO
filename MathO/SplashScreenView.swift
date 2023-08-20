@@ -12,9 +12,10 @@ struct SplashScreenView: View {
     var body: some View {
         ZStack {
             Color(.white)
+                .opacity(0.6)
                 .ignoresSafeArea(.all)
             VStack{
-                Image("splash")
+                Image("splashImage")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }

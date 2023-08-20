@@ -18,10 +18,6 @@ struct SolutionView: View {
     @State var answerCorrectly: [Bool?] = Array(repeating: nil, count: 4)
     @State private var isShowingTriangle: Bool = false
     @State private var isFinishSolution: Bool = false
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    @State var isSolutionFinished: Bool = false
-
     
     
     init(question: Math) {
@@ -54,23 +50,11 @@ struct SolutionView: View {
                                 .font(.system(size: 16, design: .rounded))
                                 .foregroundColor(.white)
                                 .bold()
-                            if(!isShowingTriangle) {
-                                Text("\(question.solution[currentStep].operationStep)"
-                                )
-                                    .font(.system(size: 48, design: .rounded))
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .padding(.top, 1)
-                            } else {
-                                Text("\(question.solution[currentStep].operationStep) = \(question.solution[currentStep].answerOptions[question.solution[currentStep].rightAnswerIndex])"
-                                )
-                                    .font(.system(size: 48, design: .rounded))
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .padding(.top, 1)
-                            }
-                            
-                            
+                            Text(question.solution[currentStep].operationStep)
+                                .font(.system(size: 48, design: .rounded))
+                                .foregroundColor(.white)
+                                .bold()
+                                .padding(.top, 1)
                         }
                         .padding(.horizontal, 8)
                         .padding(.vertical, 24)
@@ -98,107 +82,32 @@ struct SolutionView: View {
                                 .padding(.horizontal, 32)
                             }
                             .onChange(of: isSelected[currentStep]) { newValue in
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                     isShowingTriangle = true
                                 }
                             }
                         } else {
-                            SegitigaAjaibView(
-                                imagePath: segitigaAjaib(operation: question.solution[currentStep].operationStep, isParenthesis: question.solution[currentStep].isParenthtesis), descPath: teksAjaib(operation: question.solution[currentStep].operationStep, isParenthtesis: question.solution[currentStep].isParenthtesis))
+                            SegitigaAjaibView()
                                 .onChange(of: currentStep) { newValue in
                                     isShowingTriangle = false
                                 }
                         }
                     } else {
                         WrapUpView(
-                            isFinished: $isSolutionFinished, question: question
-                        ).onChange(of: isSolutionFinished){_ in
-                            if(isSolutionFinished == true){
-                                presentationMode.wrappedValue.dismiss()
-                            }
-                        }
+                            question: question
+                        )
                     }
                     
                 }.padding(.vertical, 16)
-            }.safeAreaInset(edge: .top, content: {
-                Color.clear
-                . frame (height: 0)
-                .background (.bar)
-                .border(.black)
-                })
+            }
         }.navigationBarBackButtonHidden(true)
     }
 }
 
-struct SegitigaAjaibView: View {
-    var imagePath: String
-    let descPath: String
-    
-    var body: some View {
-        VStack {
-            Text("Segitiga Ajaib")
-                .font(.system(size: 18, design: .rounded))
-                .bold()
-            
-            Image(imagePath)
-                .resizable()
-                .frame(width: 228, height: 228)
-            
-                Text(descPath)
-                    .font(.system(size: 14, design: .rounded))
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.black)
-           
-            
-        }
-        .padding(40)
-        .frame(maxWidth: .infinity)
-        .background(
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(Color("water"))
-        )
-        .padding(.horizontal, 32)
-    }
-}
 
 
-func teksAjaib(operation: String, isParenthtesis: Bool) -> String {
+func segitigaAjaib(operation: String) -> String {
     let ops = operation.components(separatedBy: " ")[1]
-    var parenthesis = "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa operasi yang berada pada tanda buka kurung dan tutup kurung adalah operasi yang harus didahulukan dalam operasi campuran matematika. Untuk menyelesaikan perhitungan di dalam tanda buka kurung dan tutup kurung, kita melihat kembali di segitiga ajaib bahwa yang pertama harus dikerjakan adalah perkalian dan pembagian, kemudian dilanjutkan dengan penjumlahan dan pengurangan"
-    
-    if isParenthtesis {
-        return parenthesis
-    }
-    switch ops {
-    case "x":
-        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa perkalian merupakan operasi kedua yang harus didahulukan dalam operasi campuran matematika."
-    case ":":
-        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pembagian merupakan operasi ketiga yang harus didahulukan dalam operasi campuran matematika."
-    case "+":
-        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa penjumlahan merupakan operasi keempat yang harus didahulukan dalam operasi campuran matematika."
-    case "-":
-        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pengurangan merupakan operasi kelima yang harus didahulukan dalam operasi campuran matematika."
-    default:
-        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa parenthesis merupakan operasi pertama yang harus didahulukan dalam operasi campuran matematika."
-    }
-}
-
-func segitigaAjaib(operation: String, isParenthesis: Bool) -> String {
-    let ops = operation.components(separatedBy: " ")[1]
-    if isParenthesis {
-        switch ops {
-        case "x":
-            return "segitiga-ajaib-multi-parenthe"
-        case ":":
-            return "segitiga-ajaib-diff-parenthe"
-        case "+":
-            return "segitiga-ajaib-plus-parenthe"
-        case "-":
-            return "segitiga-ajaib-min-parenthe"
-        default:
-            return "segitiga-ajaib-diff-parenthe"
-        }
-    }
     switch ops {
     case "x":
         return "segitiga-ajaib-multi"

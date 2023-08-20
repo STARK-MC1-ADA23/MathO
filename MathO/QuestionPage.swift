@@ -54,6 +54,7 @@ struct AnswerButton: View {
         }))
     }
 }
+
 struct AnswerProgressBar: View {
     let answerCorrectly: [Bool?]
     let questionCount: Int
@@ -74,7 +75,7 @@ struct AnswerProgressBar: View {
         self.answerCorrectly = answerCorrectly
         self.questionCount = questionCount
         
-        self.barLength  = screenWidth/CGFloat(questionCount) - 8
+        self.barLength  = screenWidth/CGFloat(questionCount)
     }
     var body: some View{
         HStack(spacing: 0){
@@ -83,7 +84,6 @@ struct AnswerProgressBar: View {
                     .foregroundColor(getBarColor(index: i))
                     .frame(width: barLength, height: 8)
                     .padding(0)
-                    .padding(.horizontal, 4)
                 //                    var _ = print(i, " : ", getBarColor(index: i))
                 
             }
@@ -100,9 +100,6 @@ struct QuestionPage: View {
     @State var answerCorrectly: [Bool?] = Array(repeating: nil, count: 12)
     @State var test = ""
     var selectedPatterns: [String] = []
-    
-    @State var showHelpButton: Bool = false
-    @State var isNeedHelp: Bool = false
     
     
     init() {
@@ -166,10 +163,8 @@ struct QuestionPage: View {
             }
         }
         .navigationBarTitle("Mari Berhitung 🤓")
-        
         .navigationBarItems(trailing: Button(action: {
             if currentPageIndex < question.count-1 {
-                showHelpButton = false
                 currentPageIndex += 1
             } else {
                 self.showSummaryView.toggle()
@@ -183,7 +178,6 @@ struct QuestionPage: View {
             
         })
             .disabled(isSelected[currentPageIndex].allSatisfy({ $0 == false}))
-            .disabled(isNeedHelp == true)
         )
         NavigationLink(
             destination: TestView(question: question, isCircle: isCircle, isSelected: isSelected, answerCorrectly: $answerCorrectly),

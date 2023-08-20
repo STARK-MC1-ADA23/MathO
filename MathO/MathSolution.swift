@@ -12,13 +12,11 @@ struct MathSolution{
     let operationStep: String
     let answerOptions: [Int]
     let rightAnswerIndex: Int
-    let isParenthtesis: Bool
     
-    init(solvingStep: [String], operationStep: String, answerOptions: [Int], rightAnswerIndex: Int, isParenthesis: Bool = false) {
+    init(solvingStep: [String], operationStep: String, answerOptions: [Int], rightAnswerIndex: Int) {
         self.solvingStep = solvingStep
         self.operationStep = operationStep
         self.answerOptions = answerOptions
         self.rightAnswerIndex = rightAnswerIndex
-        self.isParenthtesis = isParenthesis
     }
 }
